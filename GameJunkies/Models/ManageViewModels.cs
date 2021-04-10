@@ -3,7 +3,7 @@ using System.ComponentModel.DataAnnotations;
 using Microsoft.AspNet.Identity;
 using Microsoft.Owin.Security;
 
-namespace GameJunkies.Models
+namespace GameJunkies.WebMVC.Models
 {
     public class IndexViewModel
     {

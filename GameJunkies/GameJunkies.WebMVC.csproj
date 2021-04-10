@@ -174,7 +174,6 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
-    <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -251,6 +250,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameJunkies.Data\GameJunkies.Data.csproj">
+      <Project>{2b4b4896-36e3-4da3-afc4-a34e79b6c2bf}</Project>
+      <Name>GameJunkies.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameJunkies.Models\GameJunkies.Models.csproj">
+      <Project>{c535e370-63fe-4d33-bf4c-8fd53f86282e}</Project>
+      <Name>GameJunkies.Models</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameJunkies.Services\GameJunkies.Services.csproj">
+      <Project>{bab74b09-e386-4735-a68c-4303d9a859f9}</Project>
+      <Name>GameJunkies.Services</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

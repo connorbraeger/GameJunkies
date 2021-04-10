@@ -8,9 +8,10 @@ using System.Web.Mvc;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using GameJunkies.Models;
+using GameJunkies.Data;
+using GameJunkies.WebMVC.Models;
 
-namespace GameJunkies.Controllers
+namespace GameJunkies.WebMVC.Controllers
 {
     [Authorize]
     public class AccountController : Controller

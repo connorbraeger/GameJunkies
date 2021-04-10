@@ -10,9 +10,9 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security;
-using GameJunkies.Models;
+using GameJunkies.Data;
 
-namespace GameJunkies
+namespace GameJunkies.WebMVC
 {
     public class EmailService : IIdentityMessageService
     {

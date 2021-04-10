@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 
-namespace GameJunkies.Models
+namespace GameJunkies.WebMVC.Models
 {
     public class ExternalLoginConfirmationViewModel
     {

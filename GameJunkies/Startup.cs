@@ -1,8 +1,8 @@
 ﻿using Microsoft.Owin;
 using Owin;
 
-[assembly: OwinStartupAttribute(typeof(GameJunkies.Startup))]
-namespace GameJunkies
+[assembly: OwinStartupAttribute(typeof(GameJunkies.WebMVC.Startup))]
+namespace GameJunkies.WebMVC
 {
     public partial class Startup
     {

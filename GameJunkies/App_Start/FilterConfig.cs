@@ -1,7 +1,7 @@
 ﻿using System.Web;
 using System.Web.Mvc;
 
-namespace GameJunkies
+namespace GameJunkies.WebMVC
 {
     public class FilterConfig
     {

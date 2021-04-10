@@ -6,10 +6,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 
 namespace GameJunkies.Data
 {
-    // You can add profile data for the user by adding more properties to your ApplicationUser class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class ApplicationUser : IdentityUser
+    // You can add profile data for the user by adding more properties to your Gamer class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
+    public class Gamer : IdentityUser
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Gamer> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -18,7 +18,7 @@ namespace GameJunkies.Data
         }
     }
 
-    public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+    public class ApplicationDbContext : IdentityDbContext<Gamer>
     {
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)

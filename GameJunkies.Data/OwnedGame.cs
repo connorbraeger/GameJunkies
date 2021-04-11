@@ -12,9 +12,9 @@ namespace GameJunkies.Data
         public int? Id { get; set; }
         [ForeignKey(nameof(Game))]
         public int? GameId { get; set; }
-        public virtual Console Console { get; set; }
+        public virtual Game Game { get; set; }
         [ForeignKey(nameof(GamerInfo))]
-        public int? GameInfoId { get; set; }
+        public int? GamerInfoId { get; set; }
         public virtual GamerInfo GamerInfo { get; set; }
         [Required, DisplayName("Date added to Game Collection")]
         public DateTimeOffset CreatedUtc { get; set; }

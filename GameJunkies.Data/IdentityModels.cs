@@ -24,11 +24,10 @@ namespace GameJunkies.Data
 
         }
         
-        [ForeignKey(nameof(GamerInfo))]
-        public int? GamerInfoId { get; set; }
+      //  [ForeignKey(nameof(GamerInfo))]
+     //   public int? GamerInfoId { get; set; }
         
-        public int MyProperty { get; set; }
-        public virtual GamerInfo GamerInfo { get; set; }
+     //   public virtual GamerInfo GamerInfo { get; set; }
 
     }
     public class AppUserClaim : IdentityUserClaim<string> { }

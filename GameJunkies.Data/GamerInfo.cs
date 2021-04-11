@@ -16,9 +16,9 @@ namespace GameJunkies.Data
         [Required, DisplayName("Gamertag")]
         [DefaultValue("")]
         public string GamerTag { get; set; }
-        [ForeignKey(nameof(Gamer))]
-        public string GamerId { get; set; }
-        public virtual Gamer Gamer { get; set; }
+       // [ForeignKey(nameof(Gamer))]
+       // public string GamerId { get; set; }
+       // public virtual Gamer Gamer { get; set; }
         public virtual ICollection<OwnedGame> OwnedGames { get; set; }
         public virtual ICollection<OwnedConsole> OwnedConsoles { get; set; }
         [Required, DisplayName("Created")]

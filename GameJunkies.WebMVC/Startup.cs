@@ -3,6 +3,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
+using System;
 
 [assembly: OwinStartupAttribute(typeof(GameJunkies.WebMVC.Startup))]
 namespace GameJunkies.WebMVC
@@ -29,11 +30,13 @@ namespace GameJunkies.WebMVC
                     var user = new Gamer();
                     user.Email = "cjbraeger@gmail.com";
                     user.UserName = "cjbraeger@gmail.com";
+                    user.Id = Guid.NewGuid().ToString();
                     string password = "Password123!";
                     var chkUser = userManager.Create(user, password);
                     if (!chkUser.Succeeded)
                     {
                         var result1 = userManager.AddToRole(user.Id, "Admin");
+                    
                     }
                 }
             }

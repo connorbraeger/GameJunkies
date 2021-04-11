@@ -1,4 +1,6 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System;
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Data.Entity;
 using System.Data.Entity.ModelConfiguration;
 using System.Data.Entity.ModelConfiguration.Conventions;
@@ -10,9 +12,10 @@ using Microsoft.AspNet.Identity.EntityFramework;
 namespace GameJunkies.Data
 {
     // You can add profile data for the user by adding more properties to your Gamer class, please visit https://go.microsoft.com/fwlink/?LinkID=317594 to learn more.
-    public class Gamer : IdentityUser
+    public class Gamer : IdentityUser<string, AppUserLogin, ApplicationUserRole, AppUserClaim>
     {
-        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Gamer> manager)
+    
+        public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<Gamer,string> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
@@ -28,13 +31,38 @@ namespace GameJunkies.Data
         public virtual GamerInfo GamerInfo { get; set; }
 
     }
+    public class AppUserClaim : IdentityUserClaim<string> { }
+    public class AppUserLogin : IdentityUserLogin<string> { }
+    public class AppRole : IdentityRole<string, ApplicationUserRole>
+    {
+        public AppRole()
+        {
+            Id = Guid.NewGuid().ToString();
+        }
+    }
+    public class ApplicationUserRole : IdentityUserRole<string>
 
-    public class ApplicationDbContext : IdentityDbContext<Gamer>
+    {
+
+        [Required]
+
+        public virtual Gamer Gamer { get; set; }
+        [Required]
+        public virtual AppRole Role { get; set; }
+
+    }
+    public class ApplicationDbContext : IdentityDbContext<Gamer, AppRole, string, AppUserLogin, ApplicationUserRole, AppUserClaim>
     {
         public ApplicationDbContext()
-            : base("DefaultConnection", throwIfV1Schema: false)
+            : base("DefaultConnection")
         {
         }
+        public static ApplicationDbContext Create()
+        {
+            return new ApplicationDbContext();
+        }
+
+       
         public DbSet<GamerInfo> GamerInfos { get; set; }
         public DbSet<Console> Consoles{ get; set; }
         public DbSet<ConsoleGame> ConsoleGames { get; set; }
@@ -48,10 +76,7 @@ namespace GameJunkies.Data
         public DbSet<RetailerConsole> RetailerConsoles { get; set; }
         public DbSet<RetailerGame> RetailerGames { get; set; }
 
-        public static ApplicationDbContext Create()
-        {
-            return new ApplicationDbContext();
-        }
+       
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
@@ -60,18 +85,18 @@ namespace GameJunkies.Data
 
         }
     }
-    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<AppUserLogin>
     {
         public IdentityUserLoginConfiguration()
         {
-            HasKey(IdentityUserLogin => IdentityUserLogin.UserId);
+            HasKey(iul=>iul.UserId);
         }
     }
-    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<ApplicationUserRole>
     {
         public IdentityUserRoleConfiguration()
         {
-            HasKey(iur => iur.UserId);
+            HasKey(iur =>new { iur.UserId, iur.RoleId});
         }
     }
 }

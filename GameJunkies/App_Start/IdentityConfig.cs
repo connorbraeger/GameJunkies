@@ -33,16 +33,16 @@ namespace GameJunkies.WebMVC
     }
 
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
-    public class ApplicationUserManager : UserManager<Gamer>
+    public class ApplicationUserManager : UserManager<Gamer,string>
     {
-        public ApplicationUserManager(IUserStore<Gamer> store)
+        public ApplicationUserManager(IUserStore<Gamer,string> store)
             : base(store)
         {
         }
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new UserStore<Gamer>(context.Get<ApplicationDbContext>()));
+            var manager = new ApplicationUserManager(new UserStore<Gamer, AppRole, string, AppUserLogin,ApplicationUserRole, AppUserClaim>(context.Get<ApplicationDbContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<Gamer>(manager)
             {

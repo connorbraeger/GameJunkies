@@ -1,4 +1,7 @@
-﻿using System.Data.Entity;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Data.Entity;
+using System.Data.Entity.ModelConfiguration;
+using System.Data.Entity.ModelConfiguration.Conventions;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Identity;
@@ -15,7 +18,13 @@ namespace GameJunkies.Data
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+
         }
+        
+        [ForeignKey(nameof(GamerInfo))]
+        public int? GamerInfoId { get; set; }
+        public virtual GamerInfo GamerInfo { get; set; }
+
     }
 
     public class ApplicationDbContext : IdentityDbContext<Gamer>
@@ -24,10 +33,31 @@ namespace GameJunkies.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-
+        public DbSet<GamerInfo> GamerInfos { get; set; }
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();
+        }
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();
+            modelBuilder.Configurations.Add(new IdentityUserLoginConfiguration());
+            modelBuilder.Configurations.Add(new IdentityUserRoleConfiguration());
+
+        }
+    }
+    public class IdentityUserLoginConfiguration : EntityTypeConfiguration<IdentityUserLogin>
+    {
+        public IdentityUserLoginConfiguration()
+        {
+            HasKey(IdentityUserLogin => IdentityUserLogin.UserId);
+        }
+    }
+    public class IdentityUserRoleConfiguration : EntityTypeConfiguration<IdentityUserRole>
+    {
+        public IdentityUserRoleConfiguration()
+        {
+            HasKey(iur => iur.UserId);
         }
     }
 }

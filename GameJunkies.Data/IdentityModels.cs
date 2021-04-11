@@ -23,6 +23,8 @@ namespace GameJunkies.Data
         
         [ForeignKey(nameof(GamerInfo))]
         public int? GamerInfoId { get; set; }
+        
+        public int MyProperty { get; set; }
         public virtual GamerInfo GamerInfo { get; set; }
 
     }
@@ -34,6 +36,18 @@ namespace GameJunkies.Data
         {
         }
         public DbSet<GamerInfo> GamerInfos { get; set; }
+        public DbSet<Console> Consoles{ get; set; }
+        public DbSet<ConsoleGame> ConsoleGames { get; set; }
+        public DbSet<Developer> Developers { get; set; }
+        public DbSet<Game> Games { get; set; }
+        public DbSet<Genre> Genres { get; set; }
+        public DbSet<OwnedConsole> OwnedConsoles { get; set; }
+        public DbSet<OwnedGame> OwnedGames { get; set; }
+        public DbSet<Publisher> Publishers { get; set; }
+        public DbSet<Retailer> Retailers { get; set; }
+        public DbSet<RetailerConsole> RetailerConsoles { get; set; }
+        public DbSet<RetailerGame> RetailerGames { get; set; }
+
         public static ApplicationDbContext Create()
         {
             return new ApplicationDbContext();

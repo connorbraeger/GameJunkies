@@ -12,18 +12,19 @@ namespace GameJunkies.Data
     public class GamerInfo
     {
         [Key]
-        public int? GamerInfoId { get; set; }
+        public int? Id { get; set; }
         [Required, DisplayName("Gamertag")]
         [DefaultValue("")]
         public string GamerTag { get; set; }
         [ForeignKey(nameof(Gamer))]
         public string GamerId { get; set; }
-        public virtual GamerInfo Gamer { get; set; }
+        public virtual Gamer Gamer { get; set; }
         public virtual ICollection<OwnedGame> OwnedGames { get; set; }
         public virtual ICollection<OwnedConsole> OwnedConsoles { get; set; }
         [Required, DisplayName("Created")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Required, DisplayName("Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
+
     }
 }

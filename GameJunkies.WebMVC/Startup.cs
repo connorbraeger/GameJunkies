@@ -25,6 +25,7 @@ namespace GameJunkies.WebMVC
                 {
                     var role = new AppRole();
                     role.Name = "Admin";
+                    
                     roleManager.Create(role);
 
                     var user = new Gamer();
@@ -33,10 +34,10 @@ namespace GameJunkies.WebMVC
                     user.Id = Guid.NewGuid().ToString();
                     string password = "Password123!";
                     var chkUser = userManager.Create(user, password);
-                    if (!chkUser.Succeeded)
+                    if (chkUser.Succeeded)
                     {
                         var result1 = userManager.AddToRole(user.Id, "Admin");
-                    
+                        
                     }
                 }
             }

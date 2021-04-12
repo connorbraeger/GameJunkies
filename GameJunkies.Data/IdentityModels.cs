@@ -34,7 +34,7 @@ namespace GameJunkies.Data
     public class AppUserLogin : IdentityUserLogin<string> { }
     public class AppRole : IdentityRole<string, ApplicationUserRole>
     {
-        public AppRole()
+        public AppRole():base()
         {
             Id = Guid.NewGuid().ToString();
         }
@@ -43,11 +43,10 @@ namespace GameJunkies.Data
 
     {
 
-        [Required]
-
+        
         public virtual Gamer Gamer { get; set; }
-        [Required]
-        public virtual AppRole Role { get; set; }
+     
+        public virtual AppRole AppRole { get; set; }
 
     }
     public class ApplicationDbContext : IdentityDbContext<Gamer, AppRole, string, AppUserLogin, ApplicationUserRole, AppUserClaim>
@@ -95,7 +94,8 @@ namespace GameJunkies.Data
     {
         public IdentityUserRoleConfiguration()
         {
-            HasKey(iur =>new { iur.UserId, iur.RoleId});
+            HasKey(iur => new { iur.UserId, iur.RoleId });
+
         }
     }
 }

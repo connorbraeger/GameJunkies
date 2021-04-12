@@ -61,6 +61,15 @@
     <Compile Include="GamerInfo.cs" />
     <Compile Include="Genre.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202104112333207_UpdatedAppRole.cs" />
+    <Compile Include="Migrations\202104112333207_UpdatedAppRole.Designer.cs">
+      <DependentUpon>202104112333207_UpdatedAppRole.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104112347185_UpdatedAppRolev2.cs" />
+    <Compile Include="Migrations\202104112347185_UpdatedAppRolev2.Designer.cs">
+      <DependentUpon>202104112347185_UpdatedAppRolev2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OwnedConsole.cs" />
     <Compile Include="OwnedGame.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -72,6 +81,14 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104112333207_UpdatedAppRole.resx">
+      <DependentUpon>202104112333207_UpdatedAppRole.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104112347185_UpdatedAppRolev2.resx">
+      <DependentUpon>202104112347185_UpdatedAppRolev2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

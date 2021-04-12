@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using System;
+using System.Linq;
 
 [assembly: OwinStartupAttribute(typeof(GameJunkies.WebMVC.Startup))]
 namespace GameJunkies.WebMVC
@@ -37,7 +38,7 @@ namespace GameJunkies.WebMVC
                     if (chkUser.Succeeded)
                     {
                         var result1 = userManager.AddToRole(user.Id, "Admin");
-                        
+                       
                     }
                 }
             }

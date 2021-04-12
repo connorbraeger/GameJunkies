@@ -2,8 +2,8 @@ namespace GameJunkies.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class UpdatedAppRole : DbMigration
+
+    public partial class initial : DbMigration
     {
         public override void Up()
         {
@@ -14,32 +14,32 @@ namespace GameJunkies.Data.Migrations
             CreateTable(
                 "dbo.AppRole",
                 c => new
-                    {
-                        Id = c.String(nullable: false, maxLength: 128),
-                        Name = c.String(),
-                    })
+                {
+                    Id = c.String(nullable: false, maxLength: 128),
+                    Name = c.String(),
+                })
                 .PrimaryKey(t => t.Id);
-            
+
             CreateTable(
                 "dbo.ApplicationUserRole",
                 c => new
-                    {
-                        UserId = c.String(nullable: false, maxLength: 128),
-                        RoleId = c.String(nullable: false, maxLength: 128),
-                        GamerId = c.String(nullable: false, maxLength: 128),
-                        AppRoleId = c.String(nullable: false, maxLength: 128),
-                    })
+                {
+                    UserId = c.String(nullable: false, maxLength: 128),
+                    RoleId = c.String(nullable: false, maxLength: 128),
+                    GamerId = c.String(nullable: false, maxLength: 128),
+                    AppRoleId = c.String(nullable: false, maxLength: 128),
+                })
                 .PrimaryKey(t => new { t.UserId, t.RoleId })
                 .ForeignKey("dbo.AppRole", t => t.AppRoleId, cascadeDelete: true)
                 .ForeignKey("dbo.Gamer", t => t.GamerId, cascadeDelete: true)
                 .Index(t => t.GamerId)
                 .Index(t => t.AppRoleId);
-            
-            
-            
-           
+
+
+
+
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.ApplicationUserRole", "GamerId", "dbo.Gamer");

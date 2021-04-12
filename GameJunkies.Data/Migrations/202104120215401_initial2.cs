@@ -2,8 +2,8 @@ namespace GameJunkies.Data.Migrations
 {
     using System;
     using System.Data.Entity.Migrations;
-    
-    public partial class UpdatedAppRolev2 : DbMigration
+
+    public partial class initial2 : DbMigration
     {
         public override void Up()
         {
@@ -20,7 +20,7 @@ namespace GameJunkies.Data.Migrations
             AddForeignKey("dbo.ApplicationUserRole", "AppRole_Id", "dbo.AppRole", "Id");
             AddForeignKey("dbo.ApplicationUserRole", "Gamer_Id", "dbo.Gamer", "Id");
         }
-        
+
         public override void Down()
         {
             DropForeignKey("dbo.ApplicationUserRole", "Gamer_Id", "dbo.Gamer");

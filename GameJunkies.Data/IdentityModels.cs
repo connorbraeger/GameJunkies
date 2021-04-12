@@ -73,8 +73,11 @@ namespace GameJunkies.Data
         public DbSet<Retailer> Retailers { get; set; }
         public DbSet<RetailerConsole> RetailerConsoles { get; set; }
         public DbSet<RetailerGame> RetailerGames { get; set; }
+        //public DbSet<AppRole> AppRoles { get; set; }
+        public DbSet<ApplicationUserRole> ApplicationUserRoles { get; set; }
+       // public DbSet<Gamer> Gamers{ get; set; }
 
-       
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<PluralizingTableNameConvention>();

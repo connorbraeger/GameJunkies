@@ -7,13 +7,13 @@ namespace GameJunkies.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class UpdatedAppRole : IMigrationMetadata
+    public sealed partial class initial2 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(UpdatedAppRole));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(initial2));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104112333207_UpdatedAppRole"; }
+            get { return "202104120215401_initial2"; }
         }
         
         string IMigrationMetadata.Source

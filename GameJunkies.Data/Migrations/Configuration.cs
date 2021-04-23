@@ -3,6 +3,9 @@ namespace GameJunkies.Data.Migrations
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
+    using System.Data.Entity.Validation;
+    using System.Diagnostics;
+    using System.IO;
     using System.Linq;
 
     internal sealed class Configuration : DbMigrationsConfiguration<GameJunkies.Data.ApplicationDbContext>
@@ -33,21 +36,23 @@ namespace GameJunkies.Data.Migrations
                     var Genre = new Genre()
                     {
                         Name = "Not specified",
-                        Description = "",
+                        Description = "test",
                         CreatedUtc = DateTimeOffset.Now,
-                        ModifiedUtc = null
+                        ModifiedUtc = DateTimeOffset.Now
                     };
-                    ctx.Genres.Add(Genre);
+                    var result = ctx.Genres.Add(Genre);
+                   
                 }
                 if (ctx.Developers.Count() == 0)
                 {
                     var dev = new Developer()
                     {
                         Name = "Default",
-                        CompanySize = "",
-                        Country = "",
+                        CompanySize = "Default",
+                        Country = "Default",
+                        Rating = 0,
                         CreatedUtc = DateTimeOffset.Now,
-                        ModifiedUtc = null
+                        ModifiedUtc = DateTimeOffset.Now
                     };
                     ctx.Developers.Add(dev);
                 }
@@ -56,13 +61,16 @@ namespace GameJunkies.Data.Migrations
                     var pub = new Publisher()
                     {
                         Name = "Default",
-                        CompanySize = "",
-                        Country = "",
+                        CompanySize = "Default",
+                        Country = "Default",
+                        Rating = 0,
                         CreatedUtc = DateTimeOffset.Now,
-                        ModifiedUtc = null
+                        ModifiedUtc = DateTimeOffset.Now
                     };
                     ctx.Publishers.Add(pub);
                 }
+                 ctx.SaveChanges();
+               
             }
         }
     }

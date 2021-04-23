@@ -17,7 +17,7 @@ namespace GameJunkies.Data
         public string Country { get; set; }
         [Required, DefaultValue(null)]
         public float? Rating { get; set; }
-        public virtual ICollection<Game> Games { get; set; }
+        public virtual ICollection<Game> Games { get; set; } 
         [Required, DisplayName("Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
         [Required, DisplayName("Modified")]

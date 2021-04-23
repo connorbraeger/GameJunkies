@@ -26,6 +26,44 @@ namespace GameJunkies.Data.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+            using (var ctx = new ApplicationDbContext()) 
+            {
+                if(ctx.Genres.Count() == 0)
+                {
+                    var Genre = new Genre()
+                    {
+                        Name = "Not specified",
+                        Description = "",
+                        CreatedUtc = DateTimeOffset.Now,
+                        ModifiedUtc = null
+                    };
+                    ctx.Genres.Add(Genre);
+                }
+                if (ctx.Developers.Count() == 0)
+                {
+                    var dev = new Developer()
+                    {
+                        Name = "Default",
+                        CompanySize = "",
+                        Country = "",
+                        CreatedUtc = DateTimeOffset.Now,
+                        ModifiedUtc = null
+                    };
+                    ctx.Developers.Add(dev);
+                }
+                if (ctx.Publishers.Count() == 0)
+                {
+                    var pub = new Publisher()
+                    {
+                        Name = "Default",
+                        CompanySize = "",
+                        Country = "",
+                        CreatedUtc = DateTimeOffset.Now,
+                        ModifiedUtc = null
+                    };
+                    ctx.Publishers.Add(pub);
+                }
+            }
         }
     }
 }

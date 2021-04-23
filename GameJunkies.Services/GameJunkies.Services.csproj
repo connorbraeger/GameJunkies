@@ -54,11 +54,22 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="GameService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\GameJunkies.Data\GameJunkies.Data.csproj">
+      <Project>{2b4b4896-36e3-4da3-afc4-a34e79b6c2bf}</Project>
+      <Name>GameJunkies.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\GameJunkies.Models\GameJunkies.Models.csproj">
+      <Project>{c535e370-63fe-4d33-bf4c-8fd53f86282e}</Project>
+      <Name>GameJunkies.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

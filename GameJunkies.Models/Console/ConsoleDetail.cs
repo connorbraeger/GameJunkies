@@ -6,23 +6,22 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace GameJunkies.Models.Game
+namespace GameJunkies.Models.Console
 {
-    public class GameDetail
+    public class ConsoleDetail
     {
         public int? Id { get; set; }
-        public string Title { get; set; }
+        public string Name { get; set; }
         public string Description { get; set; }
-        public string ParentalRating { get; set; }
-        public string Genre { get; set; }
-        public string Developer { get; set; }
-        public string Publisher { get; set; }
+        [Required, DisplayName("Made by")]
+        public string Brand{ get; set; }
+        public decimal Price { get; set; }
         public float? Rating { get; set; }
-        [DisplayName("Release Date")]
+        [Required, DisplayName("Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
-        [DisplayName("Date added to database")]
+        [Required, DisplayName("Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [ DisplayName("Modified")]
+        [Required, DisplayName("Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

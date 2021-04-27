@@ -54,21 +54,37 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Console\ConsoleCreate.cs" />
+    <Compile Include="Console\ConsoleDetail.cs" />
+    <Compile Include="Console\ConsoleEdit.cs" />
+    <Compile Include="Console\ConsoleListItem.cs" />
+    <Compile Include="Developer\DeveloperCreate.cs" />
+    <Compile Include="Developer\DeveloperDetail.cs" />
+    <Compile Include="Developer\DeveloperEdit.cs" />
+    <Compile Include="Developer\DeveloperListItem.cs" />
+    <Compile Include="GamerInfo\GamerInfoDetail.cs" />
     <Compile Include="Game\GameCreate.cs" />
     <Compile Include="Game\GameEdit.cs" />
     <Compile Include="Game\GameListItem.cs" />
     <Compile Include="Game\GameDetail.cs" />
+    <Compile Include="Genre\GenreCreate.cs" />
+    <Compile Include="Genre\GenreDetail.cs" />
+    <Compile Include="Genre\GenreEdit.cs" />
+    <Compile Include="Genre\GenreListItem.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Publisher\PublisherCreate.cs" />
+    <Compile Include="Publisher\PublisherDetail.cs" />
+    <Compile Include="Publisher\PublisherEdit.cs" />
+    <Compile Include="Publisher\PublisherListItem.cs" />
+    <Compile Include="Retailer\RetailerCreate.cs" />
+    <Compile Include="Retailer\RetailerDetail.cs" />
+    <Compile Include="Retailer\RetailerEdit.cs" />
+    <Compile Include="Retailer\RetailerListItem.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Console\" />
-    <Folder Include="Developer\" />
-    <Folder Include="Publisher\" />
-    <Folder Include="Retailer\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

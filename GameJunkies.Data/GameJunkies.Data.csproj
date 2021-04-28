@@ -69,6 +69,10 @@
     <Compile Include="Migrations\202104120215401_initial2.Designer.cs">
       <DependentUpon>202104120215401_initial2.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202104280112236_RemovedModifiedRequirement.cs" />
+    <Compile Include="Migrations\202104280112236_RemovedModifiedRequirement.Designer.cs">
+      <DependentUpon>202104280112236_RemovedModifiedRequirement.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="OwnedConsole.cs" />
     <Compile Include="OwnedGame.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202104120215401_initial2.resx">
       <DependentUpon>202104120215401_initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104280112236_RemovedModifiedRequirement.resx">
+      <DependentUpon>202104280112236_RemovedModifiedRequirement.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

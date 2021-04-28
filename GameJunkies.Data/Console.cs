@@ -16,20 +16,20 @@ namespace GameJunkies.Data
         public string Name { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required, DisplayName("Made by")]
+        [Required, Display(Name="Made by")]
         public string Brand { get; set; }
         [Required]
         public decimal Price { get; set; }
         [Required, DefaultValue(null)]
         public float? Rating { get; set; }
-        [Required, DisplayName("Release Date")]
+        [Required, Display(Name="Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
         public virtual ICollection<OwnedConsole> OwnedConsoles { get; set; }
         public virtual ICollection<ConsoleGame> ConsoleGames { get; set; }
         public virtual ICollection<RetailerConsole> RetailerConsoles { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name="Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

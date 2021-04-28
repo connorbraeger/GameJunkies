@@ -22,7 +22,8 @@ namespace GameJunkies.Services
                 DeveloperId = model.DeveloperId,
                 PublisherId = model.PublisherId,
                 ReleaseDate = model.ReleaseDate,
-                CreatedUtc = DateTimeOffset.Now
+                CreatedUtc = DateTimeOffset.Now,
+                Rating = -1
             };
             using (var ctx = new ApplicationDbContext())
             {

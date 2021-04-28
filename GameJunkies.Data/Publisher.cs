@@ -11,16 +11,16 @@ namespace GameJunkies.Data
         public int? Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [DisplayName("Size of the Company")]
+        [Display(Name="Size of the Company")]
         public string CompanySize { get; set; }
-        [Required, DisplayName("Country Company is based out of")]
+        [Required, Display(Name="Country Company is based out of")]
         public string Country { get; set; }
         [Required, DefaultValue(null)]
         public float? Rating { get; set; }
         public virtual ICollection<Game> Games  { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name="Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

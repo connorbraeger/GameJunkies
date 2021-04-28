@@ -17,7 +17,7 @@ namespace GameJunkies.Data
         public string Title { get; set; }
         [Required]
         public string Description { get; set; }
-        [Required, DisplayName("ESRB Rating")]
+        [Required, Display(Name="ESRB Rating")]
         public string ParentalRating { get; set; }
         [ForeignKey(nameof(Genre))]
         public int? GenreId { get; set; }
@@ -30,15 +30,15 @@ namespace GameJunkies.Data
         public virtual Publisher Publisher { get; set; }
         [Required, DefaultValue(null)]
         public float? Rating { get; set; }
-        [Required, DisplayName("Release Date")]
+        [Required, Display(Name = "Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
         public virtual ICollection<ConsoleGame> ConsoleGames { get; set; }
         public virtual ICollection<OwnedGame> OwnedGames { get; set; }
         public virtual ICollection<RetailerGame> RetailerGames{ get; set; }
 
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name = "Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -33,9 +33,13 @@ namespace GameJunkies.Controllers
             }
 
             var service = new GameService();
-            service.CreateGame(model);
 
-            return RedirectToAction("Index");
+            if (service.CreateGame(model)){
+                TempData["SaveResult"] = "Your game was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Game could not be added.");
+            return View(model);
             
         }
     }

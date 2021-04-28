@@ -13,7 +13,7 @@ namespace GameJunkies.Data
     {
         [Key]
         public int? Id { get; set; }
-        [Required, DisplayName("Gamertag")]
+        [Required, Display(Name="Gamertag")]
         [DefaultValue("")]
         public string GamerTag { get; set; }
        // [ForeignKey(nameof(Gamer))]
@@ -21,9 +21,9 @@ namespace GameJunkies.Data
        // public virtual Gamer Gamer { get; set; }
         public virtual ICollection<OwnedGame> OwnedGames { get; set; }
         public virtual ICollection<OwnedConsole> OwnedConsoles { get; set; }
-        [Required, DisplayName("Created")]
+        [Required, Display(Name ="Created")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

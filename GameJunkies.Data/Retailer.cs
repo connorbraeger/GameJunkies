@@ -14,15 +14,15 @@ namespace GameJunkies.Data
         public int? Id { get; set; }
         [Required]
         public string Name { get; set; }
-        [Required,DisplayName("Website Address")]
+        [Required,Display(Name="Website Address")]
         public string WebsiteUrl { get; set; }
-        [Required, DefaultValue(false), DisplayName("Are there Physical Locations?")]
+        [Required, DefaultValue(false), Display(Name="Are there Physical Locations?")]
         public bool HasPhysicalLocations { get; set; }
         public virtual ICollection<RetailerGame> RetailerGames { get; set; }
         public virtual ICollection<RetailerConsole> RetailerConsoles { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name="Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
 
     }

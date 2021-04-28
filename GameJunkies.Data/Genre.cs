@@ -14,9 +14,9 @@ namespace GameJunkies.Data
         [Required]
         public string Description { get; set; }
         public virtual ICollection<Game> Games { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name="Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -42,5 +42,15 @@ namespace GameJunkies.Controllers
             return View(model);
             
         }
+        public ActionResult Details(int id)
+        {
+            var service = new GameService();
+            var model = service.GetGameById(id);
+            if(model == null)
+            {
+                return RedirectToAction("Index");
+            }
+            return View(model);
+        }
     }
 }

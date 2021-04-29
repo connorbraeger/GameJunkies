@@ -18,11 +18,11 @@ namespace GameJunkies.Models.Game
         public string Developer { get; set; }
         public string Publisher { get; set; }
         public float? Rating { get; set; }
-        [DisplayName("Release Date")]
+        [Display(Name ="Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
-        [DisplayName("Date added to database")]
+        [Display(Name="Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [ DisplayName("Modified")]
+        [Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

@@ -24,7 +24,7 @@ namespace GameJunkies.Models.Game
         public int? DeveloperId { get; set; }
         [Required]
         public int? PublisherId { get; set; }
-        [Required, DisplayName("Release Date")]
+        [Required, Display(Name ="Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
     }
 }

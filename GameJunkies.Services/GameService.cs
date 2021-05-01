@@ -31,9 +31,7 @@ namespace GameJunkies.Services
                 ctx.Games.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
-            {
-
-            }
+           
         }
         public IEnumerable<GameListItem> GetGames() 
         {

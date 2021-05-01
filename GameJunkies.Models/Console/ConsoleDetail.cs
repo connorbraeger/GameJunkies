@@ -13,15 +13,15 @@ namespace GameJunkies.Models.Console
         public int? Id { get; set; }
         public string Name { get; set; }
         public string Description { get; set; }
-        [Required, DisplayName("Made by")]
+        [Required, Display(Name="Made by")]
         public string Brand{ get; set; }
         public decimal Price { get; set; }
         public float? Rating { get; set; }
-        [Required, DisplayName("Release Date")]
+        [Required, Display(Name= "Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name = "Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [Required, DisplayName("Modified")]
+        [Required, Display(Name="Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

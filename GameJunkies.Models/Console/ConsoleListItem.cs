@@ -12,7 +12,7 @@ namespace GameJunkies.Models.Console
     {
         public int? ConsoleId { get; set; }
         public string Name { get; set; }
-        [DisplayName("Made by")]
+        [Display(Name = "Made by")]
         public string Brand { get; set; }
         [Display(Name= "Created")]
         public DateTimeOffset CreatedUtc { get; set; }

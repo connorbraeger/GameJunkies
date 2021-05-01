@@ -112,6 +112,16 @@ namespace GameJunkies.Services
                 }
             }
         }
+        public bool DeleteGame(int gameId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity = ctx.Games.Single(e => e.Id == gameId);
+                ctx.Games.Remove(entity);
+
+                return ctx.SaveChanges() >= 1;
+            }
+        }
 
     }
 }

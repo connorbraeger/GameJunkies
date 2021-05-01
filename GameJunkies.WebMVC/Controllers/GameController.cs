@@ -78,5 +78,24 @@ namespace GameJunkies.Controllers
             ModelState.AddModelError("", "Game could not be updated.");
             return View(model);
         }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var service = new GameService();
+            var model = service.GetGameById(id);
+            
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+            
+            var service = new GameService();
+            service.DeleteGame(id);
+            TempData["SaveResult"] = "Your game was deleted";
+            return RedirectToAction("Index");
+        }
     }
 }

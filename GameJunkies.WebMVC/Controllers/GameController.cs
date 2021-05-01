@@ -52,5 +52,31 @@ namespace GameJunkies.Controllers
             }
             return View(model);
         }
+        public ActionResult Edit(int id)
+        {
+            var service = new GameService();
+            var model = service.GetGameEditById(id);
+            return View(model);
+            
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, GameEdit model)
+        {
+            if (!ModelState.IsValid) return View(model);
+            if(model.GameId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+            var service = new GameService();
+            if (service.UpdateGame(model))
+            {
+                TempData["SaveResult"] = "The game was updated.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Game could not be updated.");
+            return View(model);
+        }
     }
 }

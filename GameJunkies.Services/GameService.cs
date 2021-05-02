@@ -99,6 +99,7 @@ namespace GameJunkies.Services
                     entity.PublisherId = model.PublisherId;
                     entity.Rating = model.Rating;
                     entity.ReleaseDate = model.ReleaseDate;
+                    entity.ModifiedUtc = DateTimeOffset.Now;
                     return ctx.SaveChanges() >= 1;
 
                 }

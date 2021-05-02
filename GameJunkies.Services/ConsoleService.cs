@@ -79,6 +79,7 @@ namespace GameJunkies.Services
                     entity.Brand = model.Brand;
                     entity.Price = model.Price;
                     entity.ReleaseDate = model.ReleaseDate;
+                    entity.ModifiedUtc = DateTimeOffset.Now;
                     return ctx.SaveChanges() >= 1;
                 }
                 catch (Exception e)

@@ -18,6 +18,6 @@ namespace GameJunkies.Models.Publisher
         [Required]
         public string Country { get; set; }
         [Required]
-        public float Rating { get; set; }
+        public float? Rating { get; set; }
     }
 }

@@ -17,5 +17,7 @@ namespace GameJunkies.Models.Publisher
         public string CompanySize { get; set; }
         [Required]
         public string Country { get; set; }
+        [Required]
+        public float Rating { get; set; }
     }
 }

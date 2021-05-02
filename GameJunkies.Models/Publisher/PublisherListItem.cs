@@ -12,7 +12,7 @@ namespace GameJunkies.Models.Publisher
     {
         public int? PublisherId { get; set; }
         public string Name { get; set; }
-        [Required, DisplayName("Date added to database")]
+        [Required, Display(Name = "Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
     }
 }

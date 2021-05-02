@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,14 +12,14 @@ namespace GameJunkies.Models.Publisher
     {
         public int? PublisherId { get; set; }
         public string Name { get; set; }
-        [DisplayName("Size of the Company")]
+        [Display(Name="Size of the Company")]
         public string CompanySize { get; set; }
-        [DisplayName("Country Company is based out of")]
+        [Display(Name = "Country Company is based out of")]
         public string Country { get; set; }
         public float? Rating { get; set; }
-        [DisplayName("Date added to database")]
+        [Display(Name = "Date added to database")]
         public DateTimeOffset CreatedUtc { get; set; }
-        [DisplayName("Modified")]
+        [Display(Name = "Modified")]
         public DateTimeOffset? ModifiedUtc { get; set; }
     }
 }

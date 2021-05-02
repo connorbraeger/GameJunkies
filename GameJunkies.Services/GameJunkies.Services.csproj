@@ -57,6 +57,7 @@
     <Compile Include="ConsoleService.cs" />
     <Compile Include="DeveloperService.cs" />
     <Compile Include="GameService.cs" />
+    <Compile Include="GenreService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="PublisherService.cs" />
     <Compile Include="RetailerService.cs" />

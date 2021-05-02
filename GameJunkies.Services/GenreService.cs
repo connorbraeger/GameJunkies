@@ -72,7 +72,6 @@ namespace GameJunkies.Services
                     var entity = ctx.Genres.Single(e => e.Id == model.Id);
                     entity.Name = model.Name;
                     entity.Description = model.Description;
-                    ctx.Genres.Add(entity);
                     return ctx.SaveChanges() == 1;
                 }
                 catch (Exception e)

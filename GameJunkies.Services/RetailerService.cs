@@ -71,7 +71,6 @@ namespace GameJunkies.Services
                     entity.WebsiteUrl = model.WebsiteUrl;
                     entity.HasPhysicalLocations = model.HasPhysicalLocations;
                     entity.ModifiedUtc = DateTimeOffset.Now;
-                    ctx.Retailers.Add(entity);
                     return ctx.SaveChanges() >= 1;
                 }
                 catch (Exception e)

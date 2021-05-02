@@ -26,9 +26,12 @@
                     <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
                     @if (User.IsInRole("Admin"))
                     {
-                     <li>@Html.ActionLink("Games", "Index", "Game")</li>
-                     <li>@Html.ActionLink("Consoles", "Index", "Console")</li>
-                     <li>@Html.ActionLink("Retailers", "Index", "Retailer")</li>
+                        <li>@Html.ActionLink("Games", "Index", "Game")</li>
+                        <li>@Html.ActionLink("Consoles", "Index", "Console")</li>
+                        <li>@Html.ActionLink("Retailers", "Index", "Retailer")</li>
+                        <li>@Html.ActionLink("Publishers", "Index", "Publisher")</li>
+                        <li>@Html.ActionLink("Developers", "Index", "Developer")</li>
+                        <li>@Html.ActionLink("Genres", "Index", "Genre")</li>
                     }
                 </ul>
                 @Html.Partial("_LoginPartial")

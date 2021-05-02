@@ -12,9 +12,9 @@ namespace GameJunkies.Models.Retailer
     {
         [Required]
         public string Name { get; set; }
-        [Required, DisplayName("Website Address")]
+        [Required, Display(Name="Website Address")]
         public string WebsiteUrl { get; set; }
-        [Required, DefaultValue(false), DisplayName("Are there Physical Locations?")]
+        [Required, DefaultValue(false), Display(Name = "Are there Physical Locations?")]
         public bool HasPhysicalLocations { get; set; }
     }
 }

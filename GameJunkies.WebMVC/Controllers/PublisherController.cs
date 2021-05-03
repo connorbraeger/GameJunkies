@@ -94,5 +94,16 @@ namespace GameJunkies.Controllers
 
             return View(model);
         }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeletePost(int id)
+        {
+
+            var service = new PublisherService();
+            service.DeletePublisher(id);
+            TempData["SaveResult"] = "Your publisher was deleted";
+            return RedirectToAction("Index");
+        }
     }
 }

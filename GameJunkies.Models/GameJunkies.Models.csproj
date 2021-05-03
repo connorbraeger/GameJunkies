@@ -54,6 +54,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleGame\ConsoleGameCreate.cs" />
+    <Compile Include="ConsoleGame\ConsoleGameDetail.cs" />
     <Compile Include="Console\ConsoleCreate.cs" />
     <Compile Include="Console\ConsoleDetail.cs" />
     <Compile Include="Console\ConsoleEdit.cs" />

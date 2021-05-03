@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Game;
+﻿using GameJunkies.Models.ConsoleGame;
+using GameJunkies.Models.Game;
 using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
@@ -96,6 +97,31 @@ namespace GameJunkies.Controllers
             service.DeleteGame(id);
             TempData["SaveResult"] = "Your game was deleted";
             return RedirectToAction("Index");
+        }
+        public ActionResult ConsoleLink(int id)
+        {
+            ViewData["GameId"] = id;
+            return View();
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult ConsoleLink(ConsoleGameCreate model)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+
+            var service = new ConsoleGameService();
+
+            if (service.CreateConsoleGame(model))
+            {
+                TempData["SaveResult"] = "Your game was linked.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "Game could not be alinked.");
+            return View(model);
+
         }
     }
 }

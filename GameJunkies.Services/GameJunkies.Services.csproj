@@ -54,6 +54,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConsoleGameService.cs" />
     <Compile Include="ConsoleService.cs" />
     <Compile Include="DeveloperService.cs" />
     <Compile Include="GameService.cs" />

@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.ConsoleGame;
+﻿using GameJunkies.Models.Console;
+using GameJunkies.Models.ConsoleGame;
 using GameJunkies.Models.Game;
 using GameJunkies.Services;
 using System;
@@ -100,12 +101,14 @@ namespace GameJunkies.Controllers
         }
         public ActionResult ConsoleLink(int id)
         {
-            ViewData["GameId"] = id;
-            return View();
+            var service = new ConsoleGameService();
+            var model = service.GetCreateLink(id);
+            
+            return View(model);
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult ConsoleLink(ConsoleGameCreate model)
+        public ActionResult ConsoleLink(ConsoleGamesCreates model)
         {
             if (!ModelState.IsValid)
             {
@@ -114,12 +117,12 @@ namespace GameJunkies.Controllers
 
             var service = new ConsoleGameService();
 
-            if (service.CreateConsoleGame(model))
+            if (service.CreateConsoleGames(model))
             {
                 TempData["SaveResult"] = "Your game was linked.";
                 return RedirectToAction("Index");
             }
-            ModelState.AddModelError("", "Game could not be alinked.");
+            ModelState.AddModelError("", "Game could not be linked.");
             return View(model);
 
         }

@@ -7,13 +7,13 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Models.ConsoleGame
 {
-    public class ConsoleGameCreate
+    public class ConsoleListItem
     {
-        [Required]
         public int? ConsoleId { get; set; }
-        [Required]
-        public int? GameId { get; set; }
-        public bool isIncluded { get; set; }
-
+        public string Name { get; set; }
+        [Display(Name = "Made by")]
+        public string Brand { get; set; }
+        [Display(Name = "Is Linked to Game")]
+        public bool IsLinked { get; set; }
     }
 }

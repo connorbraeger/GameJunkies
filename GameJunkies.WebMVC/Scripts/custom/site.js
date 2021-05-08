@@ -10,5 +10,7 @@
 }
 let searchBtn = document.getElementById("universalSearch");
 searchBtn.addEventListener("click", search);
-
+$('.carousel').carousel({
+    interval: 2000
+})
     

@@ -70,6 +70,7 @@
     <Compile Include="Developer\DeveloperEdit.cs" />
     <Compile Include="Developer\DeveloperListItem.cs" />
     <Compile Include="GamerInfo\GamerInfoDetail.cs" />
+    <Compile Include="Game\GameCard.cs" />
     <Compile Include="Game\GameCreate.cs" />
     <Compile Include="Game\GameEdit.cs" />
     <Compile Include="Game\GameListItem.cs" />

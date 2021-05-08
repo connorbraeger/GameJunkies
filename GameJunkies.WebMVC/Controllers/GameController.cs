@@ -5,6 +5,7 @@ using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 
@@ -24,7 +25,13 @@ namespace GameJunkies.Controllers
             var model = service.GetGames();
             return View(model);
         }
-        
+        public ActionResult Random()
+        {
+            var service = new GameService();
+            var request = service.RandomGames();
+            var model = request.Result;
+            return View(model);
+        }
         public ActionResult Create()
         {
             return View();

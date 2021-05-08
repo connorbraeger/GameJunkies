@@ -17,6 +17,7 @@ namespace GameJunkies.Models.Game
         public string Genre { get; set; }
         public string Developer { get; set; }
         public string Publisher { get; set; }
+        public string CoverUrl { get; set; } = "";
         public float? Rating { get; set; }
         [Display(Name ="Release Date")]
         public DateTimeOffset ReleaseDate { get; set; }

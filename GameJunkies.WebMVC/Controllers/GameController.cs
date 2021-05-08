@@ -16,11 +16,15 @@ namespace GameJunkies.Controllers
         // GET: Game
         public ActionResult Index()
         {
-
+            if (TempData["list"]!=null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new GameService();
             var model = service.GetGames();
             return View(model);
         }
+        
         public ActionResult Create()
         {
             return View();

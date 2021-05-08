@@ -4,6 +4,7 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin;
 using Microsoft.Owin.Security.Cookies;
 using Microsoft.Owin.Security.Google;
+using Owin.Security.Providers.Twitch;
 using Owin;
 using GameJunkies.Data;
 
@@ -64,6 +65,13 @@ namespace GameJunkies.WebMVC
             //    ClientId = "",
             //    ClientSecret = ""
             //});
+            app.UseTwitchAuthentication(new TwitchAuthenticationOptions()
+            {
+                ClientId = "mfxz2v59vm1kedq1enbbl4hdkum42p",
+                ClientSecret = "vqrdpllaqq9ajd1uofn7gls11e5cig"
+            }
+
+            );
         }
     }
 }

@@ -1,6 +1,16 @@
 ﻿@{
     ViewBag.Title = "Home Page";
 }
+@if (TempData.ContainsKey("SearchResult"))
+{
+    <div class="alert alert-danger fade in" role="alert">
+
+        <button type="button" class="close" data-dismiss="alert">
+            <span>&times;</span>
+        </button>
+        @TempData["SearchResult"]
+    </div>
+}
 
 <div class="jumbotron">
     <h1>GameJunkies</h1>

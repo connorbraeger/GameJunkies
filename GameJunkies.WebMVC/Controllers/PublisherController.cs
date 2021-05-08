@@ -14,6 +14,10 @@ namespace GameJunkies.Controllers
         // GET: Publisher
         public ActionResult Index()
         {
+            if (TempData["list"] != null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new PublisherService();
             var model = service.GetPublishers();
             return View(model);

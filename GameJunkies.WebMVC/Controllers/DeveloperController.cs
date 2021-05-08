@@ -14,6 +14,10 @@ namespace GameJunkies.Controllers
         // GET: Developer
         public ActionResult Index()
         {
+            if (TempData["list"] != null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new DeveloperService();
             var model = service.GetDevelopers();
             return View(model);

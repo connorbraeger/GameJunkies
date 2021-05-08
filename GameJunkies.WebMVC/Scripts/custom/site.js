@@ -10,9 +10,5 @@
 }
 let searchBtn = document.getElementById("universalSearch");
 searchBtn.addEventListener("click", search);
-//$("#universalSearch").click(function () {
-//        alert("Hello World.");
-//});
 
-    
     

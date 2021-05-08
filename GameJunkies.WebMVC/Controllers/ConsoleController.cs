@@ -14,6 +14,10 @@ namespace GameJunkies.Controllers
         // GET: Console
         public ActionResult Index()
         {
+            if (TempData["list"] != null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new ConsoleService();
             var model = service.GetConsoles();
             return View(model);

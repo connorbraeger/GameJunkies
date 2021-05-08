@@ -13,7 +13,12 @@ namespace GameJunkies.Controllers
     {
         // GET: Retailer
         public ActionResult Index()
+
         {
+            if (TempData["list"] != null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new RetailerService();
             var model = service.GetRetailers();
             return View(model);

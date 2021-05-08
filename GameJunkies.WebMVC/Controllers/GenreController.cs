@@ -14,6 +14,10 @@ namespace GameJunkies.Controllers
         // GET: Genre
         public ActionResult Index()
         {
+            if (TempData["list"] != null)
+            {
+                return View(TempData["list"]);
+            }
             var service = new GenreService();
             var model = service.GetGenres();
             return View(model);

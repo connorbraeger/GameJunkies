@@ -88,16 +88,23 @@ namespace GameJunkies.Services
 
             for (int i = 0; i < numberOfGames; i++)
             {
-                int random = ranNum.Next(1,2500);
+                int random = ranNum.Next(1, 1469);
                 var gameRequest = new RestRequest().AddParameter("", $"fields id,name,summary,rating,cover.*; where id = {random};", ParameterType.RequestBody);
 
                 var gameResponse = client.Post<IList<IGDBGame>>(gameRequest);
+                string url = "";
+                if (gameResponse.Data[0].Cover != null)
+                {
+
+                    url = GameService.UrlManipulator(gameResponse.Data[0].Cover.Url, "t_cover_big");
+                }
+                
                 var model = new GameCard()
                 {
                     Name = gameResponse.Data[0].Name,
                     Summary = gameResponse.Data[0].Summary,
                     Rating = gameResponse.Data[0].Rating,
-                    CoverURL = GameService.UrlManipulator(gameResponse.Data[0].Cover.Url, "t_cover_big")
+                    CoverURL = url
                 };
               
                 cards.Add(model);

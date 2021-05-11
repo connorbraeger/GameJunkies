@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Publisher;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Models.Publisher;
 using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,11 @@ namespace GameJunkies.Controllers
     [Authorize(Roles = "Admin")]
     public class PublisherController : Controller
     {
+        private readonly IPublisherService _publisherService;
+        public PublisherController(IPublisherService publisherService)
+        {
+            _publisherService = publisherService;
+        }
         // GET: Publisher
         public ActionResult Index()
         {

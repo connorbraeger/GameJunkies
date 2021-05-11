@@ -25,6 +25,7 @@ namespace GameJunkies.WebMVC
             builder.RegisterType<ConsoleGameService>().As<Contracts.IConsoleGameService>();
             builder.RegisterType<DeveloperService>().As<Contracts.IDeveloperService>();
             builder.RegisterType<GenreService>().As<Contracts.IGenreService>();
+            builder.RegisterType<PublisherService>().As<Contracts.IPublisherService>();
             var container = builder.Build();
             DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             ConfigureAuth(app);

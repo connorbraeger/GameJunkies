@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Publisher;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class PublisherService
+    public class PublisherService : IPublisherService
     {
         public bool CreatePublisher(PublisherCreate model)
         {

@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Console;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ using Console = GameJunkies.Data.Console;
 
 namespace GameJunkies.Services
 {
-    public class ConsoleService
+    public class ConsoleService : IConsoleService
     {
         public bool CreateConsole(ConsoleCreate model)
         {
@@ -32,7 +33,7 @@ namespace GameJunkies.Services
         }
         public IEnumerable<ConsoleListItem> GetConsoles()
         {
-            using(var ctx = new ApplicationDbContext())
+            using (var ctx = new ApplicationDbContext())
             {
                 var query = ctx.Consoles.Select(e => new ConsoleListItem { ConsoleId = e.Id, Name = e.Name, Brand = e.Brand, CreatedUtc = e.CreatedUtc });
                 return query.ToArray();
@@ -67,7 +68,7 @@ namespace GameJunkies.Services
                 }
             }
         }
-        public bool UpdateConsole(ConsoleEdit model) 
+        public bool UpdateConsole(ConsoleEdit model)
         {
             using (var ctx = new ApplicationDbContext())
             {

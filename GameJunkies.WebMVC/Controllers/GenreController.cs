@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Genre;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Models.Genre;
 using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,12 @@ namespace GameJunkies.Controllers
     public class GenreController : Controller
     {
         // GET: Genre
+        private readonly IGenreService _genreService;
+
+        public GenreController(IGenreService genreService)
+        {
+            _genreService = genreService;
+        }
         public ActionResult Index()
         {
             if (TempData["list"] != null)

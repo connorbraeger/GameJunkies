@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Developer;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Models.Developer;
 using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,11 @@ namespace GameJunkies.Controllers
     [Authorize(Roles = "Admin")]
     public class DeveloperController : Controller
     {
+        private readonly IDeveloperService _developerService;
+        public DeveloperController(IDeveloperService developerService)
+        {
+            _developerService = developerService;
+        }
         // GET: Developer
         public ActionResult Index()
         {

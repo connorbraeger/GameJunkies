@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Genre;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class GenreService
+    public class GenreService : IGenreService
     {
         public bool CreateGenre(GenreCreate model)
         {
@@ -59,7 +60,7 @@ namespace GameJunkies.Services
                     Debug.Print("Exception thrown while looking for genre");
                     Debug.Print(e.Message);
                     return null;
-                    
+
                 }
             }
         }

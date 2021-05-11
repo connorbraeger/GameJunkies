@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJunkies.Services", "Gam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJunkies.WebMVC", "GameJunkies.WebMVC\GameJunkies.WebMVC.csproj", "{62E1E5DE-B0B2-44FC-8FF8-3248349A4390}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameJunkies.Contracts", "GameJunkies.Contracts\GameJunkies.Contracts.csproj", "{CFB9FB52-94B4-4AAC-B6A4-CF839F081E0B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{62E1E5DE-B0B2-44FC-8FF8-3248349A4390}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{62E1E5DE-B0B2-44FC-8FF8-3248349A4390}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{62E1E5DE-B0B2-44FC-8FF8-3248349A4390}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFB9FB52-94B4-4AAC-B6A4-CF839F081E0B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFB9FB52-94B4-4AAC-B6A4-CF839F081E0B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFB9FB52-94B4-4AAC-B6A4-CF839F081E0B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFB9FB52-94B4-4AAC-B6A4-CF839F081E0B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

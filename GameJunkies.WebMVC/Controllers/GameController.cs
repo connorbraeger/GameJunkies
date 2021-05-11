@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Console;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Models.Console;
 using GameJunkies.Models.ConsoleGame;
 using GameJunkies.Models.Game;
 using GameJunkies.Services;
@@ -14,6 +15,12 @@ namespace GameJunkies.Controllers
     [Authorize(Roles = "Admin")]
     public class GameController : Controller
     {
+        private readonly IGameService _gameService;
+
+        public GameController(IGameService gameService)
+        {
+            _gameService = gameService;
+        }
         // GET: Game
         public ActionResult Index()
         {

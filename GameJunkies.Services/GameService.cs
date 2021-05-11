@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models;
 using GameJunkies.Models.Game;
 using IGDB;
@@ -15,7 +16,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class GameService
+    public class GameService : IGameService
     {
         public bool CreateGame(GameCreate model)
         {
@@ -77,8 +78,8 @@ namespace GameJunkies.Services
             string clientSecret = "qz9o9vm9q8qa1vwhbp29ttp25tzp27";
             var client = new RestClient("https://id.twitch.tv/oauth2");
             client.UseNewtonsoftJson();
-            
-            var tokenRequest = new RestRequest("token?").AddParameter("client_id", ClientId).AddParameter("client_secret", clientSecret).AddParameter("grant_type","client_credentials");
+
+            var tokenRequest = new RestRequest("token?").AddParameter("client_id", ClientId).AddParameter("client_secret", clientSecret).AddParameter("grant_type", "client_credentials");
             var response = client.Post<TwitchAuth>(tokenRequest);
 
             //set up game resquest
@@ -98,7 +99,7 @@ namespace GameJunkies.Services
 
                     url = GameService.UrlManipulator(gameResponse.Data[0].Cover.Url, "t_cover_big");
                 }
-                
+
                 var model = new GameCard()
                 {
                     Name = gameResponse.Data[0].Name,
@@ -106,10 +107,10 @@ namespace GameJunkies.Services
                     Rating = gameResponse.Data[0].Rating,
                     CoverURL = url
                 };
-              
+
                 cards.Add(model);
             }
-            
+
             return cards;
         }
 

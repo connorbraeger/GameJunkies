@@ -431,6 +431,10 @@
     <Content Include="Scripts\jquery-3.6.0.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GameJunkies.Contracts\GameJunkies.Contracts.csproj">
+      <Project>{cfb9fb52-94b4-4aac-b6a4-cf839f081e0b}</Project>
+      <Name>GameJunkies.Contracts</Name>
+    </ProjectReference>
     <ProjectReference Include="..\GameJunkies.Data\GameJunkies.Data.csproj">
       <Project>{2b4b4896-36e3-4da3-afc4-a34e79b6c2bf}</Project>
       <Name>GameJunkies.Data</Name>

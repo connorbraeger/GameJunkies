@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.ConsoleGame;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class ConsoleGameService
+    public class ConsoleGameService : IConsoleGameService
     {
         public bool CreateConsoleGame(ConsoleGameCreate model)
         {
@@ -66,7 +67,7 @@ namespace GameJunkies.Services
                 return model;
             }
         }
-        public bool CreateConsoleGames (ConsoleGamesCreates model)
+        public bool CreateConsoleGames(ConsoleGamesCreates model)
         {
             var recordList = new List<ConsoleGame>();
             foreach (var choice in model.ConsoleList)

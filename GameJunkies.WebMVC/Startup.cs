@@ -1,10 +1,14 @@
-﻿using GameJunkies.Data;
+﻿using Autofac;
+using Autofac.Integration.Mvc;
+using GameJunkies.Data;
+using GameJunkies.Services;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin;
 using Owin;
 using System;
 using System.Linq;
+using System.Web.Mvc;
 
 [assembly: OwinStartupAttribute(typeof(GameJunkies.WebMVC.Startup))]
 namespace GameJunkies.WebMVC
@@ -13,6 +17,16 @@ namespace GameJunkies.WebMVC
     {
         public void Configuration(IAppBuilder app)
         {
+            var builder = new ContainerBuilder();
+            builder.RegisterControllers(typeof(MvcApplication).Assembly);
+            builder.RegisterModule<AutofacWebTypesModule>();
+            builder.RegisterType<GameService>().As<Contracts.IGameService>();
+            builder.RegisterType<ConsoleService>().As<Contracts.IConsoleService>();
+            builder.RegisterType<ConsoleGameService>().As<Contracts.IConsoleGameService>();
+            builder.RegisterType<DeveloperService>().As<Contracts.IDeveloperService>();
+            builder.RegisterType<GenreService>().As<Contracts.IGenreService>();
+            var container = builder.Build();
+            DependencyResolver.SetResolver(new AutofacDependencyResolver(container));
             ConfigureAuth(app);
             CreateRolesAndUsers();
         }

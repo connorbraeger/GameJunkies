@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Developer;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class DeveloperService
+    public class DeveloperService : IDeveloperService
     {
         public bool CreateDeveloper(DeveloperCreate model)
         {
@@ -23,7 +24,7 @@ namespace GameJunkies.Services
             };
             using (var ctx = new ApplicationDbContext())
             {
-                
+
                 ctx.Developers.Add(entity);
                 return ctx.SaveChanges() == 1;
             }
@@ -35,7 +36,7 @@ namespace GameJunkies.Services
                 var query = ctx.Developers.Select(e => new DeveloperListItem { Name = e.Name, CreatedUtc = e.CreatedUtc, DeveloperId = e.Id });
                 return query.ToArray();
             }
-            
+
         }
         public DeveloperDetail GetDeveloperById(int id)
         {
@@ -84,7 +85,7 @@ namespace GameJunkies.Services
                     Debug.Print(e.Message);
                     return false;
                 }
-                
+
 
             }
         }

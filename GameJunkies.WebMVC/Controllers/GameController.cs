@@ -25,6 +25,7 @@ namespace GameJunkies.Controllers
             var model = service.GetGames();
             return View(model);
         }
+        
         public ActionResult Random()
         {
             var service = new GameService();

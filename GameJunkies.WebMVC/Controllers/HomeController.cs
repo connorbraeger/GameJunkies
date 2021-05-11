@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GameJunkies.Services;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -10,7 +11,11 @@ namespace GameJunkies.WebMVC.Controllers
     {
         public ActionResult Index()
         {
-            return View();
+            var service = new GameService();
+            var request = service.RandomGames();
+            var model = request.Result;
+            return View(model);
+            
         }
 
         public ActionResult About()

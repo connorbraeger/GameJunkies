@@ -2,6 +2,7 @@
     padding-top: 50px;
     padding-bottom: 20px;
     background-color: black;
+    color:white;
 }
 /* Set padding to keep content from hitting the edges */
 .body-content {
@@ -19,7 +20,7 @@ h2{
     color:gray;
 }
 p {
-    color: #d9dadb;
+    color: ghostwhite;
 }
 .btn-default{
     color: #d9dadb;
@@ -29,4 +30,8 @@ p {
 select,
 textarea {
     max-width: 280px;
+}*/
+/*.carousel-item{
+    display:grid;
+    grid-template-columns:1fr 3fr;
 }*/

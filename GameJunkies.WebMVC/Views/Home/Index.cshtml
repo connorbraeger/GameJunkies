@@ -1,4 +1,5 @@
-﻿@{
+﻿@model IEnumerable<GameJunkies.Models.Game.GameCard>
+@{
     ViewBag.Title = "Home Page";
 }
 @if (TempData.ContainsKey("SearchResult"))
@@ -13,12 +14,12 @@
 }
 
 <div class="jumbotron">
-    <h1>GameJunkies</h1>
-    <p class="lead">GameJunkies is your one-stop-shop for all things Video Games!</p>
-    <p><a href="" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    <h1 style="text-align:center;">GameJunkies</h1>
+    <p class="lead text-dark" style="text-align:center;">GameJunkies is your one-stop-shop for all things Video Games!</p>
+    <p style="text-align:center;"><a href="" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
 </div>
 
-<div class="row">
+@*<div class="row">
     <div class="col-md-4">
         <h2>First Steps</h2>
         <p>
@@ -35,5 +36,50 @@
         <h2>Rate Games</h2>
         <p>Rate games you own and leave a comment as to why you liked or disliked a game! </p>
         <p><a class="btn btn-default" href="">Rate some games &raquo;</a></p>
+    </div>
+</div>*@
+<div class="" style="border:dotted;height:fit-content();width:fit-content();">
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
+        </ol>
+        <div class="carousel-inner">
+            @for (int i = 0; i < Model.Count(); i++)
+            {
+                if (i == 0)
+                {
+                    <div class="carousel-item active" style="text-align:center;">
+                        <img class="img-fluid" src="@Model.ElementAt(i).CoverURL" alt="@Model.ElementAt(i).Name" >
+                        
+                            <h5 class=" text-white ">@Model.ElementAt(i).Name</h5>
+                            <p class="lead lg text-white" >@Model.ElementAt(i).Summary</p>
+                        <
+                    </div>
+                }
+                else
+                {
+                    <div class="carousel-item" style="text-align:center;">
+                        <img class="img-fluid" src="@Model.ElementAt(i).CoverURL" alt="@Model.ElementAt(i).Name" >
+                        
+                            <h5>@Model.ElementAt(i).Name</h5>
+                            <p>@Model.ElementAt(i).Summary</p>
+                        
+                    </div>
+                }
+            }
+
+        </div>
+        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
 </div>

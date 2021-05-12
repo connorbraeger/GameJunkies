@@ -5,7 +5,8 @@
     };
     if (!model.searchText == "") {
         let searchString = 'Type=' + model.type + '&SearchText=' + model.searchText;
-        self.location = "https://localhost:44316/search/?" + searchString;
+        //self.location = "https://localhost:44316/search/?" + searchString;
+        self.location = "https://" + window.location.hostname +":" + window.location.port +"/search/?" + searchString;
     };
 }
 let searchBtn = document.getElementById("universalSearch");

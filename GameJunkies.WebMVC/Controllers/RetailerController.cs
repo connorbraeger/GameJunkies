@@ -25,8 +25,8 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new RetailerService();
-            var model = service.GetRetailers();
+          //  var service = new RetailerService();
+            var model = _retailerService.GetRetailers();
             return View(model);
         }
         public ActionResult Create()
@@ -42,9 +42,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new RetailerService();
+           // var service = new RetailerService();
 
-            if (service.CreateRetailer(model))
+            if (_retailerService.CreateRetailer(model))
             {
                 TempData["SaveResult"] = "Your retailer was added.";
                 return RedirectToAction("Index");
@@ -55,8 +55,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new RetailerService();
-            var model = service.GetRetailerById(id);
+         //   var service = new RetailerService();
+            var model = _retailerService.GetRetailerById(id);
             if (model == null)
             {
                 return RedirectToAction("Index");
@@ -65,8 +65,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new RetailerService();
-            var detail = service.GetRetailerById(id);
+           // var service = new RetailerService();
+            var detail = _retailerService.GetRetailerById(id);
             var model = new RetailerEdit()
             {
                 Id = detail.RetailerId,
@@ -87,8 +87,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new RetailerService();
-            if (service.UpdateRetailer(model))
+            //var service = new RetailerService();
+            if (_retailerService.UpdateRetailer(model))
             {
                 TempData["SaveResult"] = "The retailer was updated.";
                 return RedirectToAction("Index");
@@ -99,8 +99,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new RetailerService();
-            var model = service.GetRetailerById(id);
+            //var service = new RetailerService();
+            var model = _retailerService.GetRetailerById(id);
 
             return View(model);
         }
@@ -110,8 +110,8 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
 
-            var service = new RetailerService();
-            service.DeleteRetailer(id);
+            //  var service = new RetailerService();
+            _retailerService.DeleteRetailer(id);
             TempData["SaveResult"] = "Your retailer was deleted";
             return RedirectToAction("Index");
         }

@@ -25,8 +25,8 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new ConsoleService();
-            var model = service.GetConsoles();
+            //var service = new ConsoleService();
+            var model = _consoleService.GetConsoles();
             return View(model);
         }
         public ActionResult Create()
@@ -42,9 +42,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new ConsoleService();
+            //var service = new ConsoleService();
 
-            if (service.CreateConsole(model))
+            if (_consoleService.CreateConsole(model))
             {
                 TempData["SaveResult"] = "Your console was added.";
                 return RedirectToAction("Index");
@@ -55,8 +55,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new ConsoleService();
-            var model = service.GetConsoleById(id);
+          //  var service = new ConsoleService();
+            var model = _consoleService.GetConsoleById(id);
             if (model == null)
             {
                 return RedirectToAction("Index");
@@ -65,8 +65,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new ConsoleService();
-            var detail = service.GetConsoleById(id);
+           // var service = new ConsoleService();
+            var detail = _consoleService.GetConsoleById(id);
             var model = new ConsoleEdit() 
             {
                 ConsoleId = detail.Id,
@@ -89,8 +89,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new ConsoleService();
-            if (service.UpdateConsole(model))
+           // var service = new ConsoleService();
+            if (_consoleService.UpdateConsole(model))
             {
                 TempData["SaveResult"] = "The console was updated.";
                 return RedirectToAction("Index");
@@ -101,8 +101,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new ConsoleService();
-            var model = service.GetConsoleById(id);
+         //   var service = new ConsoleService();
+            var model = _consoleService.GetConsoleById(id);
 
             return View(model);
         }
@@ -112,8 +112,8 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
 
-            var service = new ConsoleService();
-            service.DeleteConsole(id);
+           // var service = new ConsoleService();
+            _consoleService.DeleteConsole(id);
             TempData["SaveResult"] = "Your console was deleted";
             return RedirectToAction("Index");
         }

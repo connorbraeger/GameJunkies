@@ -24,8 +24,8 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new DeveloperService();
-            var model = service.GetDevelopers();
+           // var service = new DeveloperService();
+            var model = _developerService.GetDevelopers();
             return View(model);
         }
         public ActionResult Create()
@@ -41,9 +41,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new DeveloperService();
+          //  var service = new DeveloperService();
 
-            if (service.CreateDeveloper(model))
+            if (_developerService.CreateDeveloper(model))
             {
                 TempData["SaveResult"] = "Your developer was added.";
                 return RedirectToAction("Index");
@@ -54,8 +54,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new DeveloperService();
-            var model = service.GetDeveloperById(id);
+           // var service = new DeveloperService();
+            var model = _developerService.GetDeveloperById(id);
             if (model == null)
             {
                 return RedirectToAction("Index");
@@ -64,8 +64,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new DeveloperService();
-            var detail = service.GetDeveloperById(id);
+           // var service = new DeveloperService();
+            var detail = _developerService.GetDeveloperById(id);
             var model = new DeveloperEdit()
             {
                 DeveloperId = detail.DeveloperId,
@@ -87,8 +87,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new DeveloperService();
-            if (service.UpdateDeveloper(model))
+           // var service = new DeveloperService();
+            if (_developerService.UpdateDeveloper(model))
             {
                 TempData["SaveResult"] = "The developer was updated.";
                 return RedirectToAction("Index");
@@ -99,8 +99,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new DeveloperService();
-            var model = service.GetDeveloperById(id);
+           // var service = new DeveloperService();
+            var model = _developerService.GetDeveloperById(id);
 
             return View(model);
         }
@@ -110,8 +110,8 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
 
-            var service = new DeveloperService();
-            service.DeleteDeveloper(id);
+            //var service = new DeveloperService();
+            _developerService.DeleteDeveloper(id);
             TempData["SaveResult"] = "Your developer was deleted";
             return RedirectToAction("Index");
         }

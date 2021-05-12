@@ -25,8 +25,8 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new GenreService();
-            var model = service.GetGenres();
+           // var service = new GenreService();
+            var model = _genreService.GetGenres();
             return View(model);
         }
         public ActionResult Create()
@@ -42,9 +42,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new GenreService();
+            //var service = new GenreService();
 
-            if (service.CreateGenre(model))
+            if (_genreService.CreateGenre(model))
             {
                 TempData["SaveResult"] = "Your Genre was added.";
                 return RedirectToAction("Index");
@@ -55,8 +55,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new GenreService();
-            var model = service.GetGenreById(id);
+           // var service = new GenreService();
+            var model = _genreService.GetGenreById(id);
             if (model == null)
             {
                 return RedirectToAction("Index");
@@ -65,8 +65,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new GenreService();
-            var detail = service.GetGenreById(id);
+           // var service = new GenreService();
+            var detail = _genreService.GetGenreById(id);
             var model = new GenreEdit()
             {
                Id = detail.Id,
@@ -86,8 +86,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new GenreService();
-            if (service.UpdateGenre(model))
+           // var service = new GenreService();
+            if (_genreService.UpdateGenre(model))
             {
                 TempData["SaveResult"] = "The genre was updated.";
                 return RedirectToAction("Index");
@@ -98,8 +98,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new GenreService();
-            var model = service.GetGenreById(id);
+            //var service = new GenreService();
+            var model = _genreService.GetGenreById(id);
 
             return View(model);
         }
@@ -109,8 +109,8 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
 
-            var service = new GenreService();
-            service.DeleteGenre(id);
+           // var service = new GenreService();
+            _genreService.DeleteGenre(id);
             TempData["SaveResult"] = "Your genre was deleted";
             return RedirectToAction("Index");
         }

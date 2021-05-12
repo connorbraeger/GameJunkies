@@ -24,8 +24,8 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new PublisherService();
-            var model = service.GetPublishers();
+           // var service = new PublisherService();
+            var model = _publisherService.GetPublishers();
             return View(model);
         }
         public ActionResult Create()
@@ -41,9 +41,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new PublisherService();
+          //  var service = new PublisherService();
 
-            if (service.CreatePublisher(model))
+            if (_publisherService.CreatePublisher(model))
             {
                 TempData["SaveResult"] = "Your publisher was added.";
                 return RedirectToAction("Index");
@@ -54,8 +54,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new PublisherService();
-            var model = service.GetPublisherById(id);
+        //    var service = new PublisherService();
+            var model = _publisherService.GetPublisherById(id);
             if (model == null)
             {
                 return RedirectToAction("Index");
@@ -64,8 +64,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new PublisherService();
-            var detail = service.GetPublisherById(id);
+          //  var service = new PublisherService();
+            var detail = _publisherService.GetPublisherById(id);
             var model = new PublisherEdit()
             {
                 PublisherId = detail.PublisherId,
@@ -87,8 +87,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new PublisherService();
-            if (service.UpdatePublisher(model))
+          //  var service = new PublisherService();
+            if (_publisherService.UpdatePublisher(model))
             {
                 TempData["SaveResult"] = "The publisher was updated.";
                 return RedirectToAction("Index");
@@ -99,8 +99,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new PublisherService();
-            var model = service.GetPublisherById(id);
+           // var service = new PublisherService();
+            var model = _publisherService.GetPublisherById(id);
 
             return View(model);
         }
@@ -110,8 +110,8 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
 
-            var service = new PublisherService();
-            service.DeletePublisher(id);
+            // var service = new PublisherService();
+            _publisherService.DeletePublisher(id);
             TempData["SaveResult"] = "Your publisher was deleted";
             return RedirectToAction("Index");
         }

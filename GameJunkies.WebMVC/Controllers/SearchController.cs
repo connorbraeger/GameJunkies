@@ -23,22 +23,22 @@ namespace GameJunkies.Controllers
             {
 
                 case ("game"):
-                    TempData["list"] = service.SimpleGameSearch(searchText);
+                    TempData["list"] = _searchService.SimpleGameSearch(searchText);
                     return RedirectToAction("index", "game");
                 case ("console"):
-                    TempData["list"] = service.SimpleConsoleSearch(searchText);
+                    TempData["list"] = _searchService.SimpleConsoleSearch(searchText);
                     return RedirectToAction("index", "console");
                 case ("retailer"):
-                    TempData["list"] = service.SimpleRetailerSearch(searchText);
+                    TempData["list"] = _searchService.SimpleRetailerSearch(searchText);
                     return RedirectToAction("index", "retailer");
                 case ("genre"):
-                    TempData["list"] = service.SimpleGenreSearch(searchText);
+                    TempData["list"] = _searchService.SimpleGenreSearch(searchText);
                     return RedirectToAction("index", "genre");
                 case ("publisher"):
-                    TempData["list"] = service.SimplePublisherSearch(searchText);
+                    TempData["list"] = _searchService.SimplePublisherSearch(searchText);
                     return RedirectToAction("index", "game");
                 case ("developer"):
-                    TempData["list"] = service.SimpleDeveloperSearch(searchText);
+                    TempData["list"] = _searchService.SimpleDeveloperSearch(searchText);
                     return RedirectToAction("index", "game");
                 default:
                     TempData["SearchResult"] = "No item of type " + type + " containing : " + searchText + " found.";

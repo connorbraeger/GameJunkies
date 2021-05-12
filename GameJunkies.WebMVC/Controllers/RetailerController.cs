@@ -1,4 +1,5 @@
-﻿using GameJunkies.Models.Retailer;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Models.Retailer;
 using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
@@ -11,6 +12,11 @@ namespace GameJunkies.Controllers
     [Authorize(Roles = "Admin")]
     public class RetailerController : Controller
     {
+        private readonly IRetailerService _retailerService;
+        public RetailerController (IRetailerService retailerService)
+        {
+            _retailerService = retailerService;
+        }
         // GET: Retailer
         public ActionResult Index()
 

@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Console;
 using GameJunkies.Models.Developer;
 using GameJunkies.Models.Game;
@@ -13,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class SearchService
+    public class SearchService : ISearchService
     {
         public IEnumerable<GameListItem> SimpleGameSearch(string searchText)
         {
@@ -56,7 +57,7 @@ namespace GameJunkies.Services
                 return query.ToArray();
             }
         }
-         public IEnumerable<PublisherListItem> SimplePublisherSearch(string searchText)
+        public IEnumerable<PublisherListItem> SimplePublisherSearch(string searchText)
         {
             using (var ctx = new ApplicationDbContext())
             {

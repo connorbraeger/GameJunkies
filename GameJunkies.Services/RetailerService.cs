@@ -1,4 +1,5 @@
-﻿using GameJunkies.Data;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Data;
 using GameJunkies.Models.Retailer;
 using System;
 using System.Collections.Generic;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace GameJunkies.Services
 {
-    public class RetailerService
+    public class RetailerService : IRetailerService
     {
         public bool CreateRetailer(RetailerCreate model)
         {

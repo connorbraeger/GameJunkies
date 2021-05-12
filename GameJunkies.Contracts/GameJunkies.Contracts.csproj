@@ -47,6 +47,8 @@
     <Compile Include="IGameService.cs" />
     <Compile Include="IGenreService.cs" />
     <Compile Include="IPublisherService.cs" />
+    <Compile Include="IRetailerService.cs" />
+    <Compile Include="ISearchService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

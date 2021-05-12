@@ -1,4 +1,5 @@
-﻿using GameJunkies.Services;
+﻿using GameJunkies.Contracts;
+using GameJunkies.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,11 @@ namespace GameJunkies.Controllers
 {
     public class SearchController : Controller
     {
+        private readonly ISearchService _searchService;
+        public SearchController(ISearchService searchService)
+        {
+            _searchService = searchService;
+        }
         // GET: Search
         public ActionResult Index(string type, string searchText)
         {

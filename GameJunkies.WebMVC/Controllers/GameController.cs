@@ -16,10 +16,12 @@ namespace GameJunkies.Controllers
     public class GameController : Controller
     {
         private readonly IGameService _gameService;
+        private readonly IConsoleGameService _consoleGameService;
 
-        public GameController(IGameService gameService)
+        public GameController(IGameService gameService, IConsoleGameService consoleGameService)
         {
             _gameService = gameService;
+            _consoleGameService = consoleGameService;
         }
         // GET: Game
         public ActionResult Index()
@@ -28,15 +30,15 @@ namespace GameJunkies.Controllers
             {
                 return View(TempData["list"]);
             }
-            var service = new GameService();
-            var model = service.GetGames();
+            //var service = new GameService();
+            var model =_gameService.GetGames();
             return View(model);
         }
         
         public ActionResult Random()
         {
-            var service = new GameService();
-            var request = service.RandomGames();
+            //var service = new GameService();
+            var request = _gameService.RandomGames();
             var model = request.Result;
             return View(model);
         }
@@ -53,9 +55,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new GameService();
+            //var service = new GameService();
 
-            if (service.CreateGame(model)){
+            if (_gameService.CreateGame(model)){
                 TempData["SaveResult"] = "Your game was added.";
                 return RedirectToAction("Index");
             }
@@ -65,8 +67,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Details(int id)
         {
-            var service = new GameService();
-            var model = service.GetGameById(id);
+           // var service = new GameService();
+            var model = _gameService.GetGameById(id);
             if(model == null)
             {
                 return RedirectToAction("Index");
@@ -75,8 +77,8 @@ namespace GameJunkies.Controllers
         }
         public ActionResult Edit(int id)
         {
-            var service = new GameService();
-            var model = service.GetGameEditById(id);
+           // var service = new GameService();
+            var model = _gameService.GetGameEditById(id);
             return View(model);
             
         }
@@ -90,8 +92,8 @@ namespace GameJunkies.Controllers
                 ModelState.AddModelError("", "Id Mismatch");
                 return View(model);
             }
-            var service = new GameService();
-            if (service.UpdateGame(model))
+           // var service = new GameService();
+            if (_gameService.UpdateGame(model))
             {
                 TempData["SaveResult"] = "The game was updated.";
                 return RedirectToAction("Index");
@@ -102,8 +104,8 @@ namespace GameJunkies.Controllers
         [ActionName("Delete")]
         public ActionResult Delete(int id)
         {
-            var service = new GameService();
-            var model = service.GetGameById(id);
+            //var service = new GameService();
+            var model = _gameService.GetGameById(id);
             
             return View(model);
         }
@@ -113,15 +115,15 @@ namespace GameJunkies.Controllers
         public ActionResult DeletePost(int id)
         {
             
-            var service = new GameService();
-            service.DeleteGame(id);
+            //var service = new GameService();
+            _gameService.DeleteGame(id);
             TempData["SaveResult"] = "Your game was deleted";
             return RedirectToAction("Index");
         }
         public ActionResult ConsoleLink(int id)
         {
-            var service = new ConsoleGameService();
-            var model = service.GetCreateLink(id);
+            //var service = new ConsoleGameService();
+            var model = _consoleGameService.GetCreateLink(id);
             
             return View(model);
         }
@@ -134,9 +136,9 @@ namespace GameJunkies.Controllers
                 return View(model);
             }
 
-            var service = new ConsoleGameService();
+            //var service = new ConsoleGameService();
 
-            if (service.CreateConsoleGames(model))
+            if (_consoleGameService.CreateConsoleGames(model))
             {
                 TempData["SaveResult"] = "Your game was linked.";
                 return RedirectToAction("Index");
